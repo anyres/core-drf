@@ -12,13 +12,13 @@
     "db": "json-server --watch db.json",
     "pub": "npm publish --scope --access public",
     "docs": "typedoc src --out docs --exclude \"**/tests/*.ts\"",
-    "test": "jest"
+    "test": "npm run clean & jest"
   },
   "typings": "./dist/cmjs/index.d.ts",
   "author": "niuba <niuba.zbz@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@anyres/core": "^0.2.6",
+    "@anyres/core": "^0.2.8",
     "rxjs": "^6.3.3",
     "tslint": "^5.11.0",
     "typescript": "^3.2.2"
