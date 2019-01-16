@@ -4,7 +4,7 @@ import { Observable, throwError } from "rxjs";
 import { catchError, map, switchMap } from "rxjs/operators";
 
 export interface IDRFResQuery<T> {
-  fields: Array<keyof T>;
+  fields?: Array<keyof T>;
   limit?: number;
   offset?: number;
   ordering?: string;
@@ -38,6 +38,7 @@ export class AnyresDRFCRUD<
   TC,
   TU
   > {
+
   public get(id: string | number, fields: Array<keyof TG> = []): Observable<TG> {
     return this.getHeaders$().pipe(
       switchMap((headers) => {
@@ -55,6 +56,7 @@ export class AnyresDRFCRUD<
       }),
     );
   }
+
   public query(query?: TQ): Observable<IDRFResQueryResult<TG>> {
     return this.getHeaders$().pipe(
       switchMap((headers) => {
@@ -72,4 +74,5 @@ export class AnyresDRFCRUD<
       }),
     );
   }
+
 }
