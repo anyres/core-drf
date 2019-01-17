@@ -44,7 +44,7 @@ export class AnyresDRFCRUD<
       switchMap((headers) => {
         return this.httpAdapter.get(`${this.path}/${id}`, {
           params: {
-            fields: fields.join(","),
+            fields: fields ? fields.join(",") : "",
           },
           headers,
         });
@@ -62,7 +62,7 @@ export class AnyresDRFCRUD<
       switchMap((headers) => {
         return this.httpAdapter.get(`${this.path}`, {
           params: Object.assign({}, query, {
-            fields: query.fields.join(","),
+            fields: query.fields ? query.fields.join(",") : "",
           }),
           headers,
         });
